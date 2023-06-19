@@ -1,0 +1,59 @@
+--Database for store inventory 
+CREATE TABLE lofi_store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, aisle INTEGER, category TEXT);
+INSERT INTO lofi_store 
+VALUES (1, "Headphones", 150, 19, 1, "Dreamy");
+
+INSERT INTO lofi_store 
+VALUES (2, "Coffee Cup", 6, 20, 2, "Cozy");
+
+INSERT INTO lofi_store 
+VALUES (3, "Blankets", 29, 12, 2, "Cozy");
+
+INSERT INTO lofi_store 
+VALUES (4, "Umbrella", 14, 30, 3, "City");
+
+INSERT INTO lofi_store 
+VALUES (5, "Notebook", 6, 50, 2, "Cozy");
+
+INSERT INTO lofi_store 
+VALUES (6, "Skateboard", 120, 5, 3, "City");
+
+INSERT INTO lofi_store 
+VALUES (7, "Night Light", 8.49, 30, 1, "Dreamy");
+
+INSERT INTO lofi_store 
+VALUES (8, "Sweatshirt", 30, 18, 2, "Cozy");
+
+INSERT INTO lofi_store 
+VALUES (9, "Telescope", 129.90, 5, 1, "Dreamy");
+
+INSERT INTO lofi_store 
+VALUES (10, "Sunglasses", 25, 16, 3, "City");
+
+INSERT INTO lofi_store 
+VALUES (11, "Laptops", 1100, 5, 3, "City");
+
+INSERT INTO lofi_store 
+VALUES (12, "House Plants", 10.99, 20, 2, "Cozy");
+
+INSERT INTO lofi_store 
+VALUES (13, "Record Player", 200, 3, 2, "Cozy");
+
+INSERT INTO lofi_store 
+VALUES (14, "Lava Lamp", 15, 21, 1, "Dreamy");
+
+INSERT INTO lofi_store 
+VALUES (15, "Candle", 12.99, 33, 2, "Cozy");
+
+SELECT * FROM lofi_store;
+--Showing all data
+
+SELECT id, name, category, aisle FROM lofi_store ORDER BY aisle; 
+--Showing all text based data
+
+SELECT name, quantity, price FROM lofi_store GROUP BY name;
+--Showing price and quantity of each item
+
+SELECT sum(price), category FROM lofi_store
+GROUP BY aisle;
+--Showing the total price of items grouped by what aisle they are in
