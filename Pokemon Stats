@@ -1,4 +1,5 @@
 --Data about Pokemon stats imported
+
 CREATE TABLE pokemon(
   Number     INTEGER,
   Name       TEXT PRIMARY KEY,
