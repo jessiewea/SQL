@@ -1,4 +1,4 @@
-##This project utilized data from the following Netflix dataset:
+--This project utilized data from the following Netflix dataset:
 
 CREATE TABLE netflix_titles_info
     ("show_id" varchar(5), "type" varchar(7), "title" varchar(58), "country" varchar(74), "date_added" timestamp, "release_year" int, "rating" varchar(5), "duration" varchar(9), "listed_in" varchar(74))
@@ -57,4 +57,51 @@ VALUES
     ('s19', 'Adam Salky', 'Freida Pinto| Logan Marshall-Green| Robert John Burke| Megan Elisabeth Kelly| Sarah Minnich| Hayes Hargrove| Mark Sivertsen| Brandon Fierro| Antonio Valles| Clint Obenchain'),
     ('s20', NULL, 'Blanca SuÃ¡rez| IvÃ¡n Marcos| Ã“scar Casas| AdriÃ¡n Lastra| Francesc Garrido| Stefan Weinert| Julia MÃ¶ller| Alicia Chojnowski')
     ;
+--My sorting queries below:
+--How many movies are listed in this data set
+
+SELECT count(*) 
+FROM  "netflix_titles_info"
+WHERE type = 'Movie';
+
+--Date of most recently added
+
+SELECT max(date (date_added))
+FROM "netflix_titles_info";
+
+--Order all the titles in alphabetical order
+
+SELECT title
+FROM "netflix_titles_info"
+ORDER BY title asc;
+
+--Who directed a specific title
+
+SELECT director 
+FROM "netflix_titles_info" titles 
+LEFT JOIN "netflix_people" people
+ON titles.show_id = people.show_id
+WHERE titles.title = 'Confessions of an Invisible Girl';
+
+--Title of oldest movie/tv show
+SELECT title, release_year 
+FROM "netflix_titles_info"
+WHERE type = 'Movie'
+ORDER BY release_year asc
+LIMIT 1;
+
+--List of only tv shows
+
+SELECT title 
+FROM "netflix_titles_info"
+WHERE type = 'TV Show'
+ORDER BY date_added asc;
+
+--Join query to show titles made in the US
+SELECT title
+FROM "netflix_titles_info" titles 
+LEFT JOIN "netflix_people" people
+ON titles.show_id = people.show_id
+WHERE titles.country = 'United States';
+
 
