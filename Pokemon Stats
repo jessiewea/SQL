@@ -1,4 +1,4 @@
---Data about Pokemon stats imported
+--This project utilized data from the following Pokemon Stat dataset:
 
 CREATE TABLE pokemon(
   Number     INTEGER,
