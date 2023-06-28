@@ -98,10 +98,17 @@ WHERE type = 'TV Show'
 ORDER BY date_added asc;
 
 --Join query to show titles made in the US
+
 SELECT title
 FROM "netflix_titles_info" titles 
 LEFT JOIN "netflix_people" people
 ON titles.show_id = people.show_id
 WHERE titles.country = 'United States';
 
+--Find all the movies and tv shows rated PG
+
+SELECT title 
+FROM "netflix_titles_info"
+WHERE rating = 'PG' OR rating = 'TV-PG'
+ORDER BY release_year asc;
 
