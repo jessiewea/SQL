@@ -53,3 +53,22 @@ ON February.orderid=customers.order_id
 WHERE February.Quantity > 2 
 AND length (orderid) - 6
 AND orderid <> "Order ID";
+
+#Are there any products that have batteries in the name?
+
+SELECT distinct Product
+FROM BIT_DB.FebSales
+WHERE Product like "%Batteries%";
+
+#Are there any products that have a price involving .99 cents?
+
+SELECT distinct Product, Price
+FROM BIT_DB.FebSales
+WHERE Price like "%.99%";
+
+#How many products were sold in Los Angeles, and what were the products?
+
+SELECT Product, SUM (quantity)
+FROM BIT_DB.FebSales
+WHERE location like "%Los Angeles%"
+GROUP BY Product; 
