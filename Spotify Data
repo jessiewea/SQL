@@ -1,0 +1,46 @@
+SELECT * FROM BIT_DB.Spotifydata;
+
+--Which artist made the top 10 according to popularity?
+
+SELECT artist_name, track_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity desc
+LIMIT 10;
+
+--Which songs have a tempo over 100 and dance-ability over 0.5?
+
+SELECT artist_name, track_name
+FROM BIT_DB.Spotifydata
+WHERE tempo > 100
+AND danceability > 0.5;
+
+--Which artist appeared the most on the list?
+
+SELECT artist_name, count (artist_name) AS artist_count
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name 
+ORDER BY count(artist_name)desc
+LIMIT 1;
+
+--How many songs are written in C Major?
+
+SELECT artist_name, track_name
+FROM BIT_DB.Spotifydata
+WHERE song_key = 0
+AND song_mode = 1
+ORDER BY artist_name asc;
+
+--What are the top 10 happiest dance songs?
+
+SELECT track_name, artist_name, valence, tempo
+FROM BIT_DB.Spotifydata
+ORDER BY valence DESC, tempo desc
+LIMIT 10;
+
+--What is the most common key?
+
+SELECT song_key, count(song_key) as key_count
+FROM BIT_DB.Spotifydata
+GROUP BY song_key
+ORDER BY count(song_key) desc
+LIMIT 1;
