@@ -1,4 +1,4 @@
-SELECT * FROM BIT_DB.Spotifydata;
+--For this project, I used data from Spotify's top 50 songs in 2021 to answer the below questions
 
 --Which artist made the top 10 according to popularity?
 
@@ -6,13 +6,6 @@ SELECT artist_name, track_name, popularity
 FROM BIT_DB.Spotifydata
 ORDER BY popularity desc
 LIMIT 10;
-
---Which songs have a tempo over 100 and dance-ability over 0.5?
-
-SELECT artist_name, track_name
-FROM BIT_DB.Spotifydata
-WHERE tempo > 100
-AND danceability > 0.5;
 
 --Which artist appeared the most on the list?
 
@@ -44,3 +37,10 @@ FROM BIT_DB.Spotifydata
 GROUP BY song_key
 ORDER BY count(song_key) desc
 LIMIT 1;
+
+--Which songs have a tempo over 100 and dance-ability over 0.5?
+
+SELECT artist_name, track_name
+FROM BIT_DB.Spotifydata
+WHERE tempo > 100
+AND danceability > 0.5;
