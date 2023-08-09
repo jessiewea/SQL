@@ -1,5 +1,4 @@
 --This project used data involving customer invoices 
-
 -Show customers who are not based in the US
 
 SELECT FirstName, LastName,CustomerId, Country
