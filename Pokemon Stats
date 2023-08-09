@@ -1,5 +1,6 @@
 --This project utilized data from the following Pokemon Stat dataset:
 
+
 CREATE TABLE pokemon(
   Number     INTEGER,
   Name       TEXT PRIMARY KEY,
