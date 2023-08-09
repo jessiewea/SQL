@@ -94,7 +94,7 @@ FROM BIT_DB.FebSales
 WHERE Product like "%Headphones%"
 GROUP BY Product;
 
-#What was the average amount spent per account in February?
+#What was the average amount spent per account in the month of February?
 
 SELECT avg(quantity*price)
 FROM BIT_DB.FebSales February
