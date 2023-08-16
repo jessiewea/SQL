@@ -1,5 +1,7 @@
---Database for store inventory 
-CREATE TABLE lofi_store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, aisle INTEGER, category TEXT);
+--This project shows the creation of a table rather than using an existing database
+
+
+CREATE TABLE lofi_store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, quantity INTEGER, aisle INTEGER, category TEXT);
 INSERT INTO lofi_store 
 VALUES (1, "Headphones", 150, 19, 1, "Dreamy");
 
@@ -45,15 +47,21 @@ VALUES (14, "Lava Lamp", 15, 21, 1, "Dreamy");
 INSERT INTO lofi_store 
 VALUES (15, "Candle", 12.99, 33, 2, "Cozy");
 
-SELECT * FROM lofi_store;
---Showing all data
 
-SELECT id, name, category, aisle FROM lofi_store ORDER BY aisle; 
+SELECT id, item, category, aisle FROM lofi_store ORDER BY aisle; 
 --Showing all text based data
 
-SELECT name, quantity, price FROM lofi_store GROUP BY name;
+SELECT item, quantity, price FROM lofi_store GROUP BY item;
 --Showing price and quantity of each item
 
-SELECT sum(price), category FROM lofi_store
+SELECT sum(price), aisle FROM lofi_store
 GROUP BY aisle;
---Showing the total price of items grouped by what aisle they are in
+
+--Sum of price by aisle
+
+SELECT item, price, quantity
+FROM lofi_store
+WHERE price > 50
+ORDER BY price ASC
+
+--Inventory over $50
